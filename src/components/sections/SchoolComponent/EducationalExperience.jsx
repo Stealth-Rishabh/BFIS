@@ -5,29 +5,30 @@ export default function EducationalExperience() {
       <h1 className="text-3xl font-bold text-center text-blue-600 mb-8">
         Discover the Diverse Educational Experience at BFIS
       </h1>
-      <div className="grid grid-cols-3 gap-0">
-        {" "}
-        {/* Removed gap between columns */}
-        <div className="col-span-1 text-center">
+      <div className="grid lg:grid-cols-3 gap-0 md:grid-cols-1">
+        {/* Left Side Images */}
+        <div className="col-span-1 text-center md:mb-8">
           <ImageSection
             title="Academics"
             color="bg-purple-500"
             imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img1.png"
           />
-          <TriangleConnector direction="left" />
+          <TriangleConnector direction="left" className="hidden lg:block" />
           <ImageSection
             title="Student Life"
             color="bg-blue-500"
             imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img2.png"
           />
-          <TriangleConnector direction="left" />
+          <TriangleConnector direction="left" className="hidden lg:block" />
           <ImageSection
             title="Achievements"
             color="bg-purple-500"
             imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img1.png"
           />
         </div>
-        <div className="col-span-1 flex flex-col justify-center items-center text-center px-6 bg-slate-100 ">
+
+        {/* Center Text */}
+        <div className="col-span-1 flex flex-col justify-center items-center text-center px-6 bg-slate-100 md:mt-8 md:mb-8 lg:mt-0">
           <h2 className="text-2xl font-semibold mb-4">
             One Way.
             <br />
@@ -47,19 +48,21 @@ export default function EducationalExperience() {
             Learn More
           </button>
         </div>
+
+        {/* Right Side Images */}
         <div className="col-span-1 text-center">
           <ImageSection
             title="Extracurricular"
             color="bg-green-500"
             imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img3.png"
           />
-          <TriangleConnector direction="right" />
+          <TriangleConnector direction="right" className="hidden lg:block" />
           <ImageSection
             title="Facilities"
             color="bg-yellow-500"
             imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img4.png"
           />
-          <TriangleConnector direction="right" />
+          <TriangleConnector direction="right" className="hidden lg:block" />
           <ImageSection
             title="Events"
             color="bg-green-500"
@@ -73,7 +76,7 @@ export default function EducationalExperience() {
 
 function ImageSection({ title, color, imageSrc }) {
   return (
-    <div className="relative h-40 overflow-hidden">
+    <div className="relative h-40 overflow-hidden mb-4 md:mb-0">
       <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
       <div className={`absolute bottom-0 left-0 right-0 ${color} p-2`}>
         <h3 className="text-white text-lg font-semibold">{title}</h3>
@@ -82,12 +85,12 @@ function ImageSection({ title, color, imageSrc }) {
   );
 }
 
-function TriangleConnector({ direction }) {
+function TriangleConnector({ direction, className }) {
   return (
     <div
       className={`relative w-full ${
         direction === "left" ? "ml-auto" : "mr-auto"
-      }`}
+      } ${className}`}
     >
       <div
         className={`absolute bg-slate-100 ${
@@ -98,7 +101,6 @@ function TriangleConnector({ direction }) {
             direction === "left"
               ? "polygon(100% 0, 0 50%, 100% 100%)"
               : "polygon(100% 50%, 0 0, 0 100%)",
-
           WebkitClipPath:
             direction === "left"
               ? "polygon(100% 0, 0 50%, 100% 100%)"
