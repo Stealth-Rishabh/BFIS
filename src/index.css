@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #fff;
+    --foreground: #686868;
+
+    --primary: #f7941e;
+    --primary-foreground: #f7941e;
+
+    --secondary: #1cbbb4;
+    --secondary-foreground: #1cbbb4;
+
+    --destructive: #ed145b;
+    --destructive-foreground: #ed145b;
+
+    --green: #73be48;
+    --green-foreground: #73be48;
+
+    --warm: #fff0e5;
+
+    --cream-foreground: #fff;
+
+    --muted: #000;
+    --muted-foreground: #000;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --default-font-size: 16px;
+    --default-line-height: 160%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-size: var(--default-font-size);
+    font-family: Montserrat;
+    color: var(--muted-foreground);
+    line-height: var(--default-line-height);
+    background-color: var(--background);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: Poppins;
+  }
+
+  p {
+    color: var(--foreground);
+  }
+}
+
+@layer utilities {
+  .stroke-primary {
+    -webkit-text-fill-color: var(--cream-foreground);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #686868;
+  }
+}
+
+@layer components {
+  /* ------- card hover image slide up start -------- */
+  .image-layer-hover {
+    background-size: cover;
+    width: 25%;
+    height: 100%;
+    transition: 0.5s;
+  }
+
+  .image-layer-hover:nth-child(1) {
+    background-position: 0;
+    transition-delay: 0;
+  }
+
+  .image-layer-hover:nth-child(2) {
+    background-position: 33.33%;
+    transition-delay: 0.1s;
+  }
+
+  .image-layer-hover:nth-child(3) {
+    background-position: 66.66%;
+    transition-delay: 0.2s;
+  }
+
+  .image-layer-hover:nth-child(4) {
+    background-position: 100%;
+    transition-delay: 0.3s;
+  }
+
+  .layer-card:hover .image-layer-hover {
+    transform: translateY(-100%);
+  }
+
+  /* ------- card hover image slide up end -------- */
+}
+
+/* service swiper pagination */
+.services .swiper-pagination-bullets.swiper-pagination-horizontal {
+  left: 0;
+  top: 0;
+  width: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.services .swiper-pagination-bullet {
+  height: 5px;
+  width: 15px;
+  border-radius: 10px;
+  display: block;
+  background-color: #f2f2f2;
+}
+
+.services .swiper-pagination-bullet-active {
+  width: 33px;
+  background-color: var(--secondary);
+}
+
+/* service swiper pagination end*/
+@media only screen and (max-width: 1024px) {
+  body {
+    text-align: center !important;
+  }
+
+  .icon_responsive {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.card_custom_design {
+  background: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Custom scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the track */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888; /* Scrollbar thumb color */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Hover color for the scrollbar thumb */
+}
