@@ -3,55 +3,61 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import background from "@/assets/images/webp/bg.webp";
 
+// Importing all student images
+import air1 from "@/assets/images/webp/air1.webp";
+import air2 from "@/assets/images/webp/air2.webp";
+import air6 from "@/assets/images/webp/air6.webp";
+import air8 from "@/assets/images/webp/air8.webp";
+
 const StudentResults = () => {
   const students = [
     {
       rank: 1,
       name: "Ved Lahoji",
       course: "Two Year Live Interactive Online Classroom Program (XI - XII)",
-      image: "./assets/images/webp/air1.webp",
+      image: air1,
     },
     {
       rank: 1,
       name: "Ved Lahoji",
       course: "Two Year Live Interactive Online Classroom Program (XI - XII)",
-      image: "./assets/images/webp/air2.webp",
+      image: air2,
     },
     {
       rank: 2,
       name: "Aditya",
       course: "Four Year Classroom Program (IX - XII)",
-      image: "./assets/images/webp/air6.webp",
+      image: air6,
     },
     {
       rank: 6,
       name: "Rajdeep Mishra",
       course: "Two Year Live Interactive Online Classroom Program (XI - XII)",
-      image: "./assets/images/webp/air8.webp",
+      image: air8,
     },
     {
       rank: 8,
       name: "Rohan Gupta",
       course: "One Year Classroom Program (XII)",
-      image: "./assets/images/webp/air1.webp",
+      image: air1,
     },
     {
       rank: 5,
       name: "Amit Sharma",
       course: "Three Year Classroom Program (X - XII)",
-      image: "./assets/images/webp/air2.webp",
+      image: air2,
     },
     {
       rank: 3,
       name: "Sanjay Verma",
       course: "Four Year Classroom Program (IX - XII)",
-      image: "./assets/images/webp/air6.webp",
+      image: air6,
     },
     {
       rank: 4,
       name: "Karan Thakur",
       course: "Two Year Live Interactive Online Classroom Program (XI - XII)",
-      image: "./assets/images/webp/air8.webp",
+      image: air8,
     },
   ];
 
