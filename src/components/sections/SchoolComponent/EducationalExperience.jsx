@@ -1,34 +1,91 @@
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
 /* eslint-disable react/prop-types */
 export default function EducationalExperience() {
+  // Refs to observe each image and the heading
+  const headingRef = useRef(null);
+  const image1Ref = useRef(null);
+  const image2Ref = useRef(null);
+  const image3Ref = useRef(null);
+  const image4Ref = useRef(null);
+  const image5Ref = useRef(null);
+  const image6Ref = useRef(null);
+
+  // UseInView hooks to detect when elements are in view
+  const isHeadingInView = useInView(headingRef, { triggerOnce: false });
+  const isImage1InView = useInView(image1Ref, { triggerOnce: false });
+  const isImage2InView = useInView(image2Ref, { triggerOnce: false });
+  const isImage3InView = useInView(image3Ref, { triggerOnce: false });
+  const isImage4InView = useInView(image4Ref, { triggerOnce: false });
+  const isImage5InView = useInView(image5Ref, { triggerOnce: false });
+  const isImage6InView = useInView(image6Ref, { triggerOnce: false });
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 bg-white">
-      <h1 className="text-3xl font-bold text-center text-blue-600 mb-8">
+      {/* Heading with animation from top */}
+      <motion.h1
+        ref={headingRef}
+        className="text-3xl font-bold text-center text-blue-600 mb-8"
+        initial={{ y: "-100%", opacity: 0 }}
+        animate={isHeadingInView ? { y: 0, opacity: 1 } : {}}
+        transition={{ type: "spring", stiffness: 60, delay: 0.1 }}
+      >
         Discover the Diverse Educational Experience at BFIS
-      </h1>
+      </motion.h1>
+
       <div className="grid lg:grid-cols-3 gap-0 md:grid-cols-1">
         {/* Left Side Images */}
         <div className="col-span-1 text-center md:mb-8">
-          <ImageSection
-            title="Academics"
-            color="bg-purple-500"
-            imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img1.png"
-          />
+          <motion.div
+            ref={image1Ref}
+            initial={{ x: "-100%", y: "-100%", opacity: 0 }}
+            animate={isImage1InView ? { x: 0, y: 0, opacity: 1 } : {}}
+            transition={{ type: "spring", stiffness: 60, delay: 0.2 }}
+          >
+            <ImageSection
+              title="Academics"
+              color="bg-purple-500"
+              className=" rounded-lg lg:rounded-none lg:rounded-tl-lg"
+              imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img1.png"
+            />
+          </motion.div>
+
           <TriangleConnector direction="left" className="hidden lg:block" />
-          <ImageSection
-            title="Student Life"
-            color="bg-blue-500"
-            imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img2.png"
-          />
+
+          <motion.div
+            ref={image2Ref}
+            initial={{ x: "-100%", opacity: 0 }}
+            animate={isImage2InView ? { x: 0, opacity: 1 } : {}}
+            transition={{ type: "spring", stiffness: 60, delay: 0.3 }}
+          >
+            <ImageSection
+              title="Student Life"
+              color="bg-blue-500"
+              className=" lg:rounded-none rounded-lg"
+              imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img2.png"
+            />
+          </motion.div>
+
           <TriangleConnector direction="left" className="hidden lg:block" />
-          <ImageSection
-            title="Achievements"
-            color="bg-purple-500"
-            imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img1.png"
-          />
+
+          <motion.div
+            ref={image3Ref}
+            initial={{ x: "-100%", y: "100%", opacity: 0 }}
+            animate={isImage3InView ? { x: 0, y: 0, opacity: 1 } : {}}
+            transition={{ type: "spring", stiffness: 60, delay: 0.4 }}
+          >
+            <ImageSection
+              title="Achievements"
+              color="bg-purple-500"
+              className=" rounded-lg lg:rounded-none lg:rounded-bl-lg"
+              imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img1.png"
+            />
+          </motion.div>
         </div>
 
         {/* Center Text */}
-        <div className="col-span-1 flex flex-col justify-center items-center text-center px-6 bg-slate-100 md:mt-8 md:mb-8 lg:mt-0 pb-8">
+        <div className="col-span-1 flex flex-col justify-center items-center text-center px-6 bg-slate-100 md:mt-8 md:mb-8 lg:mt-0 mb-4 pb-4 pt-3">
           <h2 className="text-2xl font-semibold mb-4">
             One Way.
             <br />
@@ -51,32 +108,60 @@ export default function EducationalExperience() {
 
         {/* Right Side Images */}
         <div className="col-span-1 text-center">
-          <ImageSection
-            title="Extracurricular"
-            color="bg-green-500"
-            imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img3.png"
-          />
+          <motion.div
+            ref={image4Ref}
+            initial={{ x: "100%", y: "-100%", opacity: 0 }}
+            animate={isImage4InView ? { x: 0, y: 0, opacity: 1 } : {}}
+            transition={{ type: "spring", stiffness: 60, delay: 0.2 }}
+          >
+            <ImageSection
+              title="Extracurricular"
+              color="bg-green-500"
+              className=" rounded-lg lg:rounded-none lg:rounded-tr-lg"
+              imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img3.png"
+            />
+          </motion.div>
+
           <TriangleConnector direction="right" className="hidden lg:block" />
-          <ImageSection
-            title="Facilities"
-            color="bg-yellow-500"
-            imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img4.png"
-          />
+
+          <motion.div
+            ref={image5Ref}
+            initial={{ x: "100%", opacity: 0 }}
+            animate={isImage5InView ? { x: 0, opacity: 1 } : {}}
+            transition={{ type: "spring", stiffness: 60, delay: 0.3 }}
+          >
+            <ImageSection
+              title="Facilities"
+              color="bg-yellow-500"
+              className=" rounded-lg lg:rounded-none"
+              imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img4.png"
+            />
+          </motion.div>
+
           <TriangleConnector direction="right" className="hidden lg:block" />
-          <ImageSection
-            title="Events"
-            color="bg-green-500"
-            imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img3.png"
-          />
+
+          <motion.div
+            ref={image6Ref}
+            initial={{ x: "100%", y: "100%", opacity: 0 }}
+            animate={isImage6InView ? { x: 0, y: 0, opacity: 1 } : {}}
+            transition={{ type: "spring", stiffness: 60, delay: 0.4 }}
+          >
+            <ImageSection
+              title="Events"
+              color="bg-green-500"
+              className=" rounded-lg lg:rounded-none lg:rounded-br-lg"
+              imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img3.png"
+            />
+          </motion.div>
         </div>
       </div>
     </div>
   );
 }
 
-function ImageSection({ title, color, imageSrc }) {
+function ImageSection({ title, color, imageSrc, className }) {
   return (
-    <div className="relative h-40 overflow-hidden mb-4 md:mb-0">
+    <div className={`relative h-40 overflow-hidden mb-4 md:mb-0 ${className}`}>
       <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
       <div className={`absolute bottom-0 left-0 right-0 ${color} p-2`}>
         <h3 className="text-white text-lg font-semibold">{title}</h3>

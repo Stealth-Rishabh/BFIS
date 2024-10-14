@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const SchoolComponent = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -7,55 +8,67 @@ const SchoolComponent = () => {
     {
       title: "No.1",
       description: "A Happy, Compassionate, and Inclusive Community",
-      content: `We know that children who feel healthy, happy and safe perform at their best. Thus, from the moment a child joins us, our experienced staff ensure that they quickly settle in and start to enjoy the wonderfully rich and inspiring educational environment that is uniquely ours.
-    
-At Brookfield, we all share a passion for learning and its capacity to transform lives; we encourage and inspire our students to be the best they can be and prepare them for a happy, successful and a meaningful life. A life that will inspire the world. English, Hindi, Sanskrit, Social Studies, General Science, German, French, Physics, Chemistry, Biology, Mathematics, History, Geography, Economics, Commerce, Accountancy, Environmental Science, Bio-Technology, Computer Science, Political Science, Physical Education, Athletics, Gymnastics, Boxing, Art, Music (Western & Classical), Dance, Yoga, and meditation.`,
+      content: `We know that children who feel healthy, happy and safe perform at their best. Thus, from the moment a child joins us, our experienced staff ensure that they quickly settle in and start to enjoy the wonderfully rich and inspiring educational environment that is uniquely ours.`,
       image: "https://www.bfis.in/info/admissions/images/Twin-img1.jpg",
     },
     {
       title: "No.2",
       description: "A Sincere, Determined and Academically Driven Community",
-      content: `Academic life at Brookfield focuses on developing intellectually curious, independent-minded young adults who are well equipped for dynamic and fulfilling lives beyond school.
-
-We know that the attitudes, intellectual habits and work ethic one develops at school stay with them for life. That’s why our students are encouraged to question received wisdoms, to think deeply and to interrogate new ideas across a broad range of academic disciplines.
-
-The increasing ease of access to information means that educators today have a more important role than ever in teaching the traditional skills of evaluation, discernment and analysis.
-
-At Brookfield, we follow the CBSE curriculum for our school but in our own unique way. Our approach is designed to take the children away from the boredom of their classroom learning while introducing them to a new world of imaginations, creativity, experiences, and experiments. The approach of the real-world curriculum at the school is based on problems, projects, and questions versus the traditional curriculum approach of discipline, skills, and facts.`,
+      content: `Academic life at Brookfield focuses on developing intellectually curious, independent-minded young adults who are well equipped for dynamic and fulfilling lives beyond school.`,
       image: "https://www.bfis.in/info/admissions/images/Twin-img2.jpg",
     },
     {
       title: "No.3",
       description: "A Curious, Creative, and Passionate Community",
-      content: `Performing arts is quite simply a way of life at Brookfield. For any student with a passion for music, drama, dance in any form – whether contemporary or classical – we offer boundless inspiration, opportunity and encouragement. We celebrate and support individual excellence and mass participation – catering to the ambitions and abilities of all students. We offer trained guidance to all interested students.`,
+      content: `Performing arts is quite simply a way of life at Brookfield. For any student with a passion for music, drama, or dance in any form – whether contemporary or classical – we offer boundless inspiration and encouragement.`,
       image: "https://www.bfis.in/info/admissions/images/Twin-img3.jpg",
     },
     {
       title: "No.4",
       description: "A Hard-Working, Courageous, and Proud Community",
-      content: `From playing for fun to aspiring to play for the gold; all our students experience a broad range of sports in exceptional facilities. We are driven by values, not results. We know that if you get your culture right, the results will follow. Our coaches and trainers are professional athletes and understand what it takes to perform at the highest level. They assist students at all levels to advance their abilities, as well as nurturing elite performers through focused training programmes – giving them every opportunity to excel. For students who wish to compete in their chosen sports, there are ample opportunities to represent Brookfield.`,
+      content: `From playing for fun to aspiring to play for the gold; all our students experience a broad range of sports in exceptional facilities. We are driven by values, not results.`,
       image: "https://www.bfis.in/info/admissions/images/Twin-img4.jpg",
     },
     {
       title: "No.5",
       description: "The Widest Choice of Courses",
-      content: `English, Hindi, Sanskrit, Social Studies, General Science, German, French, Physics, Chemistry, Biology, Mathematics, History, Geography, Economics, Commerce, Accountancy, Environmental Science, Bio- Technology, Computer Science, Political Science Physical Education, Athletics, Gymnastics, Boxing Art, Music (Western & Classical) & Dance Yoga and meditation.`,
+      content: `We offer a wide range of courses including languages, sciences, arts, and sports to encourage diverse interests and passions.`,
       image: "https://www.bfis.in/info/admissions/images/Twin-img5.jpg",
     },
   ];
 
+  // Ref for observation
+  const headingRef = useRef(null);
+  const contentRef = useRef(null);
+  const isHeadingInView = useInView(headingRef, { once: false });
+  const isContentInView = useInView(contentRef, { once: false });
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-newRed text-white p-8">
-      <div className="text-center mb-8">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-newRed text-white p-8 overflow-hidden">
+      {/* Heading and Subheading Section */}
+      <motion.div
+        className="text-center mb-8"
+        ref={headingRef}
+        initial={{ x: "-100%", opacity: 0 }} // Slide from left
+        animate={isHeadingInView ? { x: 0, opacity: 1 } : {}} // Animate when in view
+        transition={{ type: "spring", stiffness: 60, delay: 0.2 }} // Spring transition
+      >
         <h2 className="text-3xl lg:text-5xl font-bold">
           Brookfield International School
         </h2>
         <h4 className="text-lg lg:text-xl mt-2">
           Where Curious Minds Become Compassionate & Confident Leaders
         </h4>
-      </div>
+      </motion.div>
 
-      <div className="flex flex-col lg:flex-row bg-schoolgrey rounded-xl shadow-lg overflow-hidden sm:max-h-[485px] max-w-6xl w-full">
+      {/* Tabbed Content Section */}
+      <motion.div
+        className="flex flex-col lg:flex-row bg-schoolgrey rounded-xl shadow-lg overflow-hidden sm:max-h-[485px] max-w-6xl w-full"
+        ref={contentRef}
+        initial={{ x: "100%", opacity: 0 }} // Slide from right
+        animate={isContentInView ? { x: 0, opacity: 1 } : {}} // Animate when in view
+        transition={{ type: "spring", stiffness: 60, delay: 0.4 }} // Spring transition
+      >
         {/* Left Side Tabs */}
         <div className="flex-none w-full lg:w-1/4 bg-schoolgrey">
           {tabs.map((tab, index) => (
@@ -104,7 +117,7 @@ At Brookfield, we follow the CBSE curriculum for our school but in our own uniqu
             className="object-cover w-full h-full"
           />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
