@@ -28,7 +28,7 @@ export default function EducationalExperience() {
         </div>
 
         {/* Center Text */}
-        <div className="col-span-1 flex flex-col justify-center items-center text-center px-6 bg-slate-100 md:mt-8 md:mb-8 lg:mt-0">
+        <div className="col-span-1 flex flex-col justify-center items-center text-center px-6 bg-slate-100 md:mt-8 md:mb-8 lg:mt-0 pb-8">
           <h2 className="text-2xl font-semibold mb-4">
             One Way.
             <br />
@@ -95,7 +95,7 @@ function TriangleConnector({ direction, className }) {
       <div
         className={`absolute bg-slate-100 ${
           direction === "left" ? "right-0" : "left-0"
-        } w-20 h-20 z-10 mt-[-2.5rem]`}
+        } w-10 h-10 z-10 mt-[-1.20rem]`}
         style={{
           clipPath:
             direction === "left"

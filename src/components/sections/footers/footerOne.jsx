@@ -73,34 +73,36 @@ const FooterOne = () => {
 
           <SlideUp delay={4}>
             <h3 className="text-2xl font-semibold">Contact</h3>
-            <ul className="flex flex-col gap-[15px] pt-5">
+            <ul className="flex flex-col gap-[15px] pt-5 w-[300px]">
               <li>
-                <p className="text-[#686868] flex items-center gap-4">
-                  <span className="w-11 h-11 rounded-full border border-gray-200 flex justify-center items-center text-green-foreground">
-                    <FaLocationDot />
-                  </span>{" "}
-                  <span className="max-w-[168px]">
+                <p className="text-[#686868] flex items-start gap-4">
+                  <span className="w-11 h-11 rounded-full border border-gray-200 flex justify-center items-center text-green-500">
+                    <FaLocationDot size={20} />
+                  </span>
+                  <span className="leading-tight max-w-[230px]">
                     Sheikhpura New Chandigarh, Kurali-Siswan Road, Dist. S.A.S
                     Nagar, Mohali, Pin: 140110
                   </span>
                 </p>
               </li>
               <li>
-                <p className="text-[#686868] flex items-center gap-4">
-                  <span className="w-11 h-11 rounded-full border border-gray-200 flex justify-center items-center text-green-foreground">
-                    <FaEnvelope />
-                  </span>{" "}
-                  <a href="mailto:info@bfis.in">info@bfis.in</a>{" "}
-                  {/* Updated to mailto link */}
+                <p className="text-[#686868] flex items-start gap-4">
+                  <span className="w-11 h-11 rounded-full border border-gray-200 flex justify-center items-center text-green-500">
+                    <FaEnvelope size={20} />
+                  </span>
+                  <a href="mailto:info@bfis.in" className="leading-tight">
+                    info@bfis.in
+                  </a>
                 </p>
               </li>
               <li>
-                <p className="text-[#686868] flex items-center gap-4">
-                  <span className="w-11 h-11 rounded-full border border-gray-200 flex justify-center items-center text-green-foreground">
-                    <FaPhone />
-                  </span>{" "}
-                  <a href="tel:+919066790662">+91-90667 90662</a>{" "}
-                  {/* Updated to tel link */}
+                <p className="text-[#686868] flex items-start gap-4">
+                  <span className="w-11 h-11 rounded-full border border-gray-200 flex justify-center items-center text-green-500">
+                    <FaPhone size={20} />
+                  </span>
+                  <a href="tel:+919066790662" className="leading-tight">
+                    +91-90667 90662
+                  </a>
                 </p>
               </li>
             </ul>
