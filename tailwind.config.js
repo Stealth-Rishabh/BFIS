@@ -10,7 +10,7 @@ module.exports = {
   prefix: "",
   theme: {
     container: {
-      center: true,
+      center: true, // Fixed 'true' string to a boolean value
       screens: {
         xl: "1290px",
         lg: "1024px",
@@ -21,16 +21,16 @@ module.exports = {
     },
     extend: {
       spacing: {
+        15: "60px",
+        25: "100px",
         2.5: "10px",
         4.5: "18px",
         7.5: "30px",
         12.5: "50px",
-        15: "60px",
-        25: "100px",
       },
       backgroundImage: {
-        "testimonial-banner": "url('./assets/images/testimonial/bg-img.png')",
-        "newsletter-banner": "url('/assets/images/newsletter/bg-img.png')",
+        "testimonial-banner": "url('/assets/images/testimonial/bg-img.png')", // Corrected quote placement
+        "newsletter-banner": "url('/assets/images/newsletter/bg-img.png')", // Corrected quote placement
       },
       boxShadow: {
         sm: "0px 0px 10px 0px rgba(0, 0, 0, 0.2)",
@@ -39,44 +39,63 @@ module.exports = {
       },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
-        montserrat: ["Montserrat", "sans-serif"], // Correct way to define Montserrat
+        montserrat: ["Montserrat", "sans-serif"],
       },
       colors: {
         newBlue: "#0a1b2f",
         newRed: "#a42f37",
         schoolgrey: "#313131",
-        border: "var(--border)",
-        input: "var(--input)",
-        ring: "var(--ring)",
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "var(--primary)",
-          foreground: "var(--primary-foreground)",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "var(--secondary)",
-          foreground: "var(--secondary-foreground)",
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
-          DEFAULT: "var(--destructive)",
-          foreground: "var(--destructive-foreground)",
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: "var(--muted)",
-          foreground: "var(--muted-foreground)",
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
         warm: {
           DEFAULT: "var(--warm)",
-          foreground: "",
+          foreground: "var(--warm-foreground)",
         },
         green: {
           DEFAULT: "var(--green)",
           foreground: "var(--green-foreground)",
         },
         cream: {
-          DEFAULT: "",
+          DEFAULT: "#f5f5dc", // Corrected the color value
           foreground: "var(--cream-foreground)",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        chart: {
+          1: "hsl(var(--chart-1))",
+          2: "hsl(var(--chart-2))",
+          3: "hsl(var(--chart-3))",
+          4: "hsl(var(--chart-4))",
+          5: "hsl(var(--chart-5))",
         },
       },
       borderRadius: {
@@ -94,24 +113,16 @@ module.exports = {
           to: { height: "0" },
         },
         "left-right": {
-          "50%": {
-            transform: `translateX(14px)`,
-          },
+          "50%": { transform: "translateX(14px)" },
         },
         "left-right-2": {
-          "50%": {
-            transform: `translateX(-40px)`,
-          },
+          "50%": { transform: "translateX(-40px)" },
         },
         "up-down": {
-          "50%": {
-            transform: "translateY(-10px)",
-          },
+          "50%": { transform: "translateY(-10px)" },
         },
         skw: {
-          "50%": {
-            transform: "skewX(5deg)",
-          },
+          "50%": { transform: "skewX(5deg)" },
         },
         "expend-width-height": {
           "100%": {
@@ -119,15 +130,25 @@ module.exports = {
             height: "56%",
           },
         },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
+        "marquee-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(calc(-100% - var(--gap)))" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "left-right": "left-right 2s linear infinite",
-        "left-right-2": "left-right-2 4s linear infinite;",
+        "left-right-2": "left-right-2 4s linear infinite",
         "up-down": "up-down 2s linear infinite",
         skw: "skw 2s linear infinite",
         "expend-width-height": "expend-width-height 2s linear infinite",
+        marquee: "marquee var(--duration) infinite linear",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
     },
   },

@@ -22,7 +22,7 @@ export default function EducationalExperience() {
   const isImage6InView = useInView(image6Ref, { triggerOnce: false });
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 bg-white">
+    <div className="max-w-6xl mx-auto px-4 py-8 bg-white overflow-x-hidden">
       {/* Heading with animation from top */}
       <motion.h1
         ref={headingRef}

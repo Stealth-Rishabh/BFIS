@@ -14,7 +14,7 @@ export default function PicLayout() {
   const isParagraphInView = useInView(paragraphRef, { triggerOnce: false });
 
   return (
-    <div className="bg-newRed p-8 flex justify-center flex-col md:flex-row items-center">
+    <div className="bg-newRed p-8 flex justify-center flex-col md:flex-row items-center overflow-x-hidden">
       {/* Image Section - Slide in from Left */}
       <motion.div
         className="md:w-1/2"

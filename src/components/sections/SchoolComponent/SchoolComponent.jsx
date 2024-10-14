@@ -44,7 +44,7 @@ const SchoolComponent = () => {
   const isContentInView = useInView(contentRef, { once: false });
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-newRed text-white p-8 overflow-hidden">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-newRed text-white p-8 overflow-x-hidden">
       {/* Heading and Subheading Section */}
       <motion.div
         className="text-center mb-8"
