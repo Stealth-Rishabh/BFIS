@@ -3,14 +3,12 @@ import DesktopMenu from "./desktopMenu";
 import MobileMenu from "./mobileMenu";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { FaMagnifyingGlass, FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
 import TopHeader from "./topHeader";
-import SearchForm from "./searchForm";
 import Logo from "@/components/ui/logo";
 import StickyHeader from "@/components/ui/stickyHeader";
 
 const HeaderOne = () => {
-  const [isSerchActive, setIsSerchActive] = useState(false);
   const [isMobleMenuActive, setIsMobleMenuActive] = useState(false);
 
   return (
@@ -33,15 +31,13 @@ const HeaderOne = () => {
                   />
 
                   <div className="flex items-center gap-6 ">
-                    <div
-                      className="ml-16 cursor-pointer"
-                      onClick={() => setIsSerchActive(true)}
+                    <div className="ml-16 cursor-pointer"></div>
+                    <Button
+                      asChild
+                      variant="ghost"
+                      className="sm:flex hidden bg-newBlue"
                     >
-                      <FaMagnifyingGlass className="text-xl" />
-                    </div>
-                    <Button asChild variant="ghost" className="sm:flex hidden">
                       <Link to={"/contact-us"}>
-                        {" "}
                         Get A Quote <FaArrowRight />
                       </Link>
                     </Button>
@@ -50,16 +46,11 @@ const HeaderOne = () => {
                       className="flex xl:hidden flex-col items-end cursor-pointer transition-all duration-500"
                       onClick={() => setIsMobleMenuActive(true)}
                     >
-                      <span className="block h-[3px] w-5 bg-muted"></span>
-                      <span className="block h-[3px] w-7.5 bg-muted mt-2"></span>
-                      <span className="block h-[3px] w-5 bg-muted mt-2"></span>
+                      <span className="block h-[3px] w-5 bg-gray-600"></span>
+                      <span className="block h-[3px] w-7.5 bg-gray-600 mt-2"></span>
+                      <span className="block h-[3px] w-5 bg-gray-600 mt-2"></span>
                     </div>
                   </div>
-
-                  <SearchForm
-                    isSerchActive={isSerchActive}
-                    setIsSerchActive={setIsSerchActive}
-                  />
                 </div>
               </div>
             </div>

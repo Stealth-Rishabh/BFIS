@@ -1,4 +1,3 @@
-import React from "react";
 import contact_2 from "@/assets/images/contact/contact-2.png";
 import contact_1 from "@/assets/images/contact/contact-1.png";
 import winner from "@/assets/images/contact/winner.svg";
@@ -66,7 +65,6 @@ const ContactForm = () => {
                         htmlFor="name"
                         className="absolute right-5 top-1/2 -translate-y-1/2"
                       >
-                        {" "}
                         <FaPaperPlane />
                       </label>
                     </div>
@@ -100,7 +98,6 @@ const ContactForm = () => {
                       htmlFor="address"
                       className="absolute right-5 top-1/2 -translate-y-1/2"
                     >
-                      {" "}
                       <FaLocationDot />
                     </label>
                   </div>
@@ -116,7 +113,6 @@ const ContactForm = () => {
                       htmlFor="address"
                       className="absolute right-5 top-[15px]"
                     >
-                      {" "}
                       <FaEnvelope />
                     </label>
                   </div>

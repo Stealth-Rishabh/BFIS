@@ -1,29 +1,26 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import { ScrollRestoration } from 'react-router-dom'
-import ContactAddress from '@/components/sections/contactAddress'
-import ContactForm from '@/components/sections/contactForm'
-import GoogleMap from '@/components/sections/googleMap'
-import NewsletterTwo from '@/components/sections/newsletters/newsletterTwo'
-import PageTitle from '@/components/sections/pageTitle'
+import { Helmet } from "react-helmet";
+import { ScrollRestoration } from "react-router-dom";
+import ContactAddress from "@/components/sections/contactAddress";
+import ContactForm from "@/components/sections/contactForm";
+import GoogleMap from "@/components/sections/googleMap";
+import NewsletterTwo from "@/components/sections/newsletters/newsletterTwo";
 
 const ContactUs = () => {
   return (
     <>
       <Helmet>
-        <title>Ascent - Chindcare & Kids School React.js Template  || Contact-Us</title>
-        <meta name="description" content="Ascent - Chindcare & Kids School React.js and Tailwind CSS Template" />
+        <title>BFIS || Top school in North India</title>
+        <meta name="description" content="BFIS || Top school in North India" />
       </Helmet>
       <main>
-        <PageTitle pageName={"Contact Us"} breadcrumbCurrent={"Contact Us"} />
+        <ContactForm />
         <ContactAddress />
         <GoogleMap />
-        <ContactForm />
         <NewsletterTwo />
       </main>
-      <ScrollRestoration/>
+      <ScrollRestoration />
     </>
-  )
-}
+  );
+};
 
-export default ContactUs
+export default ContactUs;

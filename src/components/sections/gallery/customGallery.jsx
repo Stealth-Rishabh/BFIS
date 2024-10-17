@@ -5,6 +5,7 @@ const Gallery = () => {
     "https://www.bfis.in/info/admissions/images/gallery/2.jpg",
     "https://www.bfis.in/info/admissions/images/gallery/2.jpg",
     "https://www.bfis.in/info/admissions/images/gallery/6.jpg",
+    "https://www.bfis.in/info/admissions/images/gallery/2.jpg",
   ];
 
   return (
@@ -47,6 +48,15 @@ const Gallery = () => {
           <img
             src={images[4]}
             alt="Gallery Image 5"
+            className="w-full h-auto object-cover rounded-lg"
+          />
+        </div>
+
+        {/* Additional image only visible on mobile */}
+        <div className="col-span-1 md:hidden">
+          <img
+            src={images[5]}
+            alt="Gallery Image 6"
             className="w-full h-auto object-cover rounded-lg"
           />
         </div>

@@ -27,7 +27,10 @@ const ImageCard = ({ imageSrc, altText }) => {
 
 export function GalleryTwo() {
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-newRed">
+      <h2 className="text-white text-4xl font-bold text-center mb-2 sm:mt-12">
+        What&apos;s Happenings
+      </h2>
       {/* Top Marquee */}
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRowImages.map((image, index) => (
@@ -51,8 +54,8 @@ export function GalleryTwo() {
       </Marquee>
 
       {/* Gradients for fade effect */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
+      {/* <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div> */}
     </div>
   );
 }

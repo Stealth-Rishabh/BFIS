@@ -99,9 +99,9 @@ const StudentResults = () => {
   return (
     <div className="bg-navy-900 p-8 min-h-screen bg-newBlue">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-yellow-400 text-4xl font-bold text-center mb-2 sm:mt-12">
+        <h2 className="text-yellow-400 text-4xl font-bold text-center mb-2 sm:mt-12">
           THE RESULTS SPEAK FOR THEMSELVES
-        </h1>
+        </h2>
         <p className="text-white text-center mb-8">
           The secret to our students success lies in our passion, determination,
         </p>

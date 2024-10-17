@@ -10,7 +10,7 @@ const FooterOne = () => {
   return (
     <footer className="pt-[70px] relative">
       <div className="container">
-        <div className="grid lg:grid-cols-[370px_auto_auto] sm:grid-cols-2 grid-cols-1 justify-between gap-7.5">
+        <div className="grid lg:grid-cols-[370px_auto_auto] sm:grid-cols-2 grid-cols-1 justify-between gap-7.5 text-left">
           <SlideUp delay={2}>
             <Logo />
             <p className="pt-4">
