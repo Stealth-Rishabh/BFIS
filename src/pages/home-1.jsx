@@ -9,6 +9,8 @@ import PicLayout from "@/components/sections/picLayout/picLayout";
 import FullscreenSections from "@/components/sections/FullScreenSections/FullScreenSection";
 import EducationalExperience from "@/components/sections/SchoolComponent/EducationalExperience";
 
+import TiltedSlider from "@/components/slider/Slider";
+
 const sectionsData = [
   {
     id: "section-1",
@@ -59,6 +61,7 @@ const HomeOne = () => {
       </Helmet>
       <HeroVideo />
       <SchoolComponent />
+      <TiltedSlider />
       <StudentResults />
       <FullscreenSections sections={sectionsData} />
       <PicLayout />
