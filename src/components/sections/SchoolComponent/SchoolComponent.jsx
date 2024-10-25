@@ -91,16 +91,16 @@ export default function StudentProfileCarousel() {
   }, [isMobile, currentIndex, controls]);
 
   return (
-    <div className="max-w-7xl py-16 mx-auto p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg shadow-lg">
+    <div className="max-w-7xl py-16 mx-auto p-6 bg-red-600 bg-gradient-to-br from-red-600 text-white rounded-lg shadow-xl">
       {/* Heading Section */}
       <div className="text-center mb-16">
         <WordPullUp
           words="Brookfield International School"
-          className="text-3xl font-extrabold text-red-700 sm:text-4xl font-playfair"
+          className="text-3xl font-extrabold sm:text-4xl font-playfair"
         />
         <WordFadeIn
           words="Where Curious Minds Become Compassionate & Confident Leaders"
-          className="mt-4 text-xl text-gray-600"
+          className="mt-4 text-xl"
         />
       </div>
 
@@ -116,40 +116,43 @@ export default function StudentProfileCarousel() {
           <img
             src={students[currentIndex].image}
             alt={students[currentIndex].name}
-            className="w-full h-auto object-cover rounded-lg shadow-md"
+            className="w-full h-auto object-cover rounded-lg shadow-lg"
           />
         </motion.div>
         {/* Student Information */}
         <div className="col-span-1 md:col-span-2 space-y-4 relative">
           <div className="absolute -top-4 left-0">
-            <span className="text-red-600 text-sm font-semibold border-b-2 border-red-600">
+            <span className="text-white text-sm font-semibold border-b-2 border-white">
               Reason To Choose
             </span>
           </div>
           <div className="absolute -top-4 right-0 flex space-x-2">
             <button
               onClick={prevSlide}
-              className="text-gray-500 hover:text-gray-700 p-2 rounded-full bg-gray-100 shadow-md"
+              className="text-white hover:text-gray-300 p-2 rounded-full bg-gray-800 bg-opacity-50 shadow-lg"
               aria-label="Previous student"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={nextSlide}
-              className="text-gray-500 hover:text-gray-700 p-2 rounded-full bg-gray-100 shadow-md"
+              className="text-white hover:text-gray-300 p-2 rounded-full bg-gray-800 bg-opacity-50 shadow-lg"
               aria-label="Next student"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold mt-6 text-gray-800">
+          <h2 className="text-2xl md:text-3xl font-bold mt-6">
             {students[currentIndex].name}
           </h2>
-          <p className="text-gray-700">{students[currentIndex].description}</p>
-          <p className="text-gray-600">
+          <p className="text-gray-200">{students[currentIndex].description}</p>
+          <p className="text-gray-300">
             {students[currentIndex].additionalInfo}
           </p>
-          <a href="#" className="text-red-600 hover:text-red-700 font-medium">
+          <a
+            href="#"
+            className="text-yellow-300 hover:text-yellow-400 font-medium"
+          >
             Read More
           </a>
         </div>
@@ -159,7 +162,7 @@ export default function StudentProfileCarousel() {
             <motion.img
               src={students[(currentIndex + 1) % students.length].image}
               alt={students[(currentIndex + 1) % students.length].name}
-              className="w-full h-auto object-cover rounded-lg shadow-md"
+              className="w-full h-auto object-cover rounded-lg shadow-lg"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
@@ -167,7 +170,7 @@ export default function StudentProfileCarousel() {
             <motion.img
               src={students[(currentIndex + 2) % students.length].image}
               alt={students[(currentIndex + 2) % students.length].name}
-              className="w-full h-auto object-cover rounded-lg shadow-md"
+              className="w-full h-auto object-cover rounded-lg shadow-lg"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}

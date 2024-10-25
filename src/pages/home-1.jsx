@@ -48,7 +48,7 @@ const sectionsData = [
   {
     id: "section-2",
     backgroundImage: `${ethos}`,
-    heading: "BFIS Value & Ethos",
+    heading: "BFIS Values & Ethos",
     buttonText: "Know More",
     onButtonClick: () => alert("Dive In clicked"),
   },
