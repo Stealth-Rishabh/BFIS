@@ -1,148 +1,180 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+"use client";
 
-const SchoolComponent = () => {
-  const [activeTab, setActiveTab] = useState(null); // Default to no active tab
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, useAnimation } from "framer-motion";
+import WordPullUp from "@/components/ui/word-pull-up";
+import WordFadeIn from "@/components/ui/word-fade-in";
 
-  const tabs = [
-    {
-      title: "No.1",
-      description: "Happy, Compassionate, and Inclusive Community",
-      content: `We know that children who feel healthy, happy and safe perform at their best. Thus, from the moment a child joins us, our experienced staff ensure that they quickly settle in and start to enjoy the wonderfully rich and inspiring educational environment that is uniquely ours.`,
-      image: "https://www.bfis.in/info/admissions/images/Twin-img1.jpg",
-    },
-    {
-      title: "No.2",
-      description: "Sincere, Determined and Academically Driven Community",
-      content: `Academic life at Brookfield focuses on developing intellectually curious, independent-minded young adults who are well equipped for dynamic and fulfilling lives beyond school.`,
-      image: "https://www.bfis.in/info/admissions/images/Twin-img2.jpg",
-    },
-    {
-      title: "No.3",
-      description: "Curious, Creative, and Passionate Community",
-      content: `Performing arts is quite simply a way of life at Brookfield. For any student with a passion for music, drama, or dance in any form – whether contemporary or classical – we offer boundless inspiration and encouragement.`,
-      image: "https://www.bfis.in/info/admissions/images/Twin-img3.jpg",
-    },
-    {
-      title: "No.4",
-      description: "Hard-Working, Courageous, and Proud Community",
-      content: `From playing for fun to aspiring to play for the gold; all our students experience a broad range of sports in exceptional facilities. We are driven by values, not results.`,
-      image: "https://www.bfis.in/info/admissions/images/Twin-img4.jpg",
-    },
-    {
-      title: "No.5",
-      description: "The Widest Choice of Courses",
-      content: `We offer a wide range of courses including languages, sciences, arts, and sports to encourage diverse interests and passions.`,
-      image: "https://www.bfis.in/info/admissions/images/Twin-img5.jpg",
-    },
-  ];
+const students = [
+  {
+    id: 1,
+    name: "Inclusive Community",
+    image: "https://www.bfis.in/info/admissions/images/Twin-img1.jpg",
+    description:
+      "At Brookfield, we all share a passion for learning and its capacity to transform lives; we encourage and inspire our students to be the best they can be and prepare them for a happy, successful and a meaningful life. A life that will inspire the world.",
+    additionalInfo: "",
+  },
+  {
+    id: 2,
+    name: "Determined",
+    image: "https://www.bfis.in/info/admissions/images/Twin-img2.jpg",
+    description: `We know that the attitudes, intellectual habits and work ethic one develops at school stay with them for life. That’s why our students are encouraged to question received wisdoms, to think deeply and to interrogate new ideas across a broad range of academic disciplines.`,
+    additionalInfo: "",
+  },
+  {
+    id: 3,
+    name: "Creative and Passionate",
+    image: "https://www.bfis.in/info/admissions/images/Twin-img3.jpg",
+    description: `Performing arts is quite simply a way of life at Brookfield. For any student with a passion for music, drama, dance in any form – whether contemporary or classical – we offer boundless inspiration, opportunity and encouragement. We celebrate and support individual excellence and mass participation – catering to the ambitions and abilities of all students.`,
+    additionalInfo: "",
+  },
+  {
+    id: 4,
+    name: "Courageous and Proud",
+    image: "https://www.bfis.in/info/admissions/images/Twin-img4.jpg",
+    description:
+      "Our coaches and trainers are professional athletes and understand what it takes to perform at the highest level. They assist students at all levels to advance their abilities, as well as nurturing elite performers through focused training programmes – giving them every opportunity to excel.",
+    additionalInfo: "",
+  },
+  {
+    id: 5,
+    name: "Choice of Courses",
+    image: "https://www.bfis.in/info/admissions/images/Twin-img5.jpg",
+    description:
+      "We offer a wide range of courses including languages, sciences, arts, and sports to encourage diverse interests and passions.",
+    additionalInfo: "",
+  },
+];
 
-  const handleTabClick = (index) => {
-    // Toggle the active tab. If the same tab is clicked, close it.
-    setActiveTab(activeTab === index ? null : index);
+export default function StudentProfileCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const controls = useAnimation();
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % students.length);
   };
 
+  const prevSlide = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + students.length) % students.length
+    );
+  };
+
+  useEffect(() => {
+    // Check if the screen is mobile-sized
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add resize event listener
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Trigger the animation from left for mobile
+    if (isMobile) {
+      controls.start({
+        x: 0,
+        opacity: 1,
+        transition: { duration: 0.5 },
+      });
+    }
+  }, [isMobile, currentIndex, controls]);
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-red-600 py-16 text-white p-4 sm:p-8 overflow-x-hidden">
-      {/* Heading and Subheading Section */}
-      <div className="text-center mb-8">
-        <h2 className="text-3xl lg:text-5xl font-bold font-playfair">
-          Brookfield International School
-        </h2>
-        <h4 className="text-lg lg:text-xl mt-2">
-          Where Curious Minds Become Compassionate & Confident Leaders
-        </h4>
+    <div className="max-w-7xl py-16 mx-auto p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg shadow-lg">
+      {/* Heading Section */}
+      <div className="text-center mb-16">
+        <WordPullUp
+          words="Brookfield International School"
+          className="text-3xl font-extrabold text-red-700 sm:text-4xl font-playfair"
+        />
+        <WordFadeIn
+          words="Where Curious Minds Become Compassionate & Confident Leaders"
+          className="mt-4 text-xl text-gray-600"
+        />
       </div>
 
-      {/* For Large Screens (Original Design) */}
-      <div className="hidden lg:flex lg:flex-row bg-schoolgrey rounded-xl shadow-lg overflow-hidden max-w-6xl w-full">
-        <div className="flex-none w-full lg:w-1/4 bg-schoolgrey">
-          {tabs.map((tab, index) => (
-            <div
-              key={`tab-${index}`} // Ensure unique keys
-              className={`p-4 border-b cursor-pointer transition-all duration-300 ${
-                activeTab === index
-                  ? "bg-gray-700 text-white"
-                  : "bg-white text-black hover:bg-gray-200"
-              }`}
-              onClick={() => handleTabClick(index)}
-            >
-              <h3 className="font-semibold text-lg">{tab.title}</h3>
-              <p className="text-sm">{tab.description}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex-grow lg:w-1/3 p-6 lg:p-16 bg-schoolgrey text-white">
-          {activeTab !== null && (
-            <>
-              <h3 className="font-bold mb-4 text-xl text-white">
-                {tabs[activeTab].description}
-              </h3>
-              <p className="text-slate-300 whitespace-pre-line">
-                {tabs[activeTab].content}
-              </p>
-            </>
-          )}
-        </div>
-
-        <div className="flex-none w-full lg:w-1/3">
-          {activeTab !== null && (
-            <img
-              src={tabs[activeTab].image}
-              alt={tabs[activeTab].title}
-              className="object-cover w-full h-full"
-            />
-          )}
-        </div>
-      </div>
-
-      {/* For Mobile and Tablet (Accordion Design) */}
-      <div className="lg:hidden w-full max-w-2xl mx-auto mt-8">
-        {tabs.map((tab, index) => (
-          <div
-            key={`mobile-tab-${index}`} // Ensure unique keys
-            className={`border rounded-lg mb-4 overflow-hidden ${
-              activeTab === index
-                ? "bg-gray-700 text-white"
-                : "bg-white text-black"
-            }`}
-          >
-            {/* Tab Title */}
-            <div
-              className="p-4 cursor-pointer flex justify-between items-center"
-              onClick={() => handleTabClick(index)}
-            >
-              <h3 className="font-semibold text-lg">{tab.title}</h3>
-              <p className="text-sm">{tab.description}</p>
-            </div>
-
-            {/* Content (Only visible if activeTab matches the current index) */}
-            {activeTab === index && (
-              <motion.div
-                className="p-4 bg-gray-800 text-white rounded-b-lg"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div>
-                  <h3 className="font-bold mb-2 text-xl">{tab.description}</h3>
-                  <p className="text-slate-300 whitespace-pre-line mb-4">
-                    {tab.content}
-                  </p>
-                  <img
-                    src={tab.image}
-                    alt={tab.title}
-                    className="object-cover w-full h-auto rounded-lg"
-                  />
-                </div>
-              </motion.div>
-            )}
+      {/* Carousel Section */}
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+        {/* Main Student Image */}
+        <motion.div
+          className="col-span-1"
+          initial={isMobile ? { x: -100, opacity: 0 } : { opacity: 1 }}
+          animate={isMobile ? controls : { opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <img
+            src={students[currentIndex].image}
+            alt={students[currentIndex].name}
+            className="w-full h-auto object-cover rounded-lg shadow-md"
+          />
+        </motion.div>
+        {/* Student Information */}
+        <div className="col-span-1 md:col-span-2 space-y-4 relative">
+          <div className="absolute -top-4 left-0">
+            <span className="text-red-600 text-sm font-semibold border-b-2 border-red-600">
+              Reason To Choose
+            </span>
           </div>
-        ))}
+          <div className="absolute -top-4 right-0 flex space-x-2">
+            <button
+              onClick={prevSlide}
+              className="text-gray-500 hover:text-gray-700 p-2 rounded-full bg-gray-100 shadow-md"
+              aria-label="Previous student"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="text-gray-500 hover:text-gray-700 p-2 rounded-full bg-gray-100 shadow-md"
+              aria-label="Next student"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-bold mt-6 text-gray-800">
+            {students[currentIndex].name}
+          </h2>
+          <p className="text-gray-700">{students[currentIndex].description}</p>
+          <p className="text-gray-600">
+            {students[currentIndex].additionalInfo}
+          </p>
+          <a href="#" className="text-red-600 hover:text-red-700 font-medium">
+            Read More
+          </a>
+        </div>
+        {/* Additional Images */}
+        <div className="col-span-1 md:col-span-2">
+          <div className="grid grid-cols-2 gap-4">
+            <motion.img
+              src={students[(currentIndex + 1) % students.length].image}
+              alt={students[(currentIndex + 1) % students.length].name}
+              className="w-full h-auto object-cover rounded-lg shadow-md"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            />
+            <motion.img
+              src={students[(currentIndex + 2) % students.length].image}
+              alt={students[(currentIndex + 2) % students.length].name}
+              className="w-full h-auto object-cover rounded-lg shadow-md"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
-};
-
-export default SchoolComponent;
+}

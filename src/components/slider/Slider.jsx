@@ -1,14 +1,16 @@
 /* eslint-disable react/prop-types */
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../../index.css"; // Make sure to import any additional Tailwind or custom styles
-import WordPullUp from "@/components/ui/word-pull-up";
+import WordFadeIn from "@/components/ui/word-fade-in"; // Import WordFadeIn component
+import WordPullUp from "../ui/word-pull-up";
 
 const TiltedSlider = () => {
   const sliderRef = useRef(null); // Reference to the slider
-  const [isAnimated, setIsAnimated] = React.useState(false); // Track animation trigger
+  const [isAnimated, setIsAnimated] = useState(false); // Track animation trigger
+  const [activeSlide, setActiveSlide] = useState(0);
 
   const settings = {
     arrows: false, // Disable the default arrows
@@ -30,8 +32,6 @@ const TiltedSlider = () => {
       },
     ],
   };
-
-  const [activeSlide, setActiveSlide] = React.useState(0);
 
   const slides = [
     {
@@ -110,7 +110,7 @@ const TiltedSlider = () => {
               className="text-4xl font-bold text-center mb-2 sm:mt-12 text-red-600 font-playfair"
               words="THE RESULTS SPEAK FOR THEMSELVES"
             />
-            <WordPullUp
+            <WordFadeIn
               className="text-gray-700 text-center mb-8 text-xl"
               words="The secret to our students success lies in our passion and determination."
             />

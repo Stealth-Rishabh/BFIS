@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
 
 import HeroVideo from "@/components/sections/heros/heroVideo";
-import SchoolComponent from "@/components/sections/SchoolComponent/SchoolComponent";
+import StudentProfileCarousel from "@/components/sections/SchoolComponent/SchoolComponent";
 
 import Gallery from "@/components/sections/gallery/customGallery";
 import GalleryTwo from "@/components/sections/gallery/cutomGalleryTwo";
@@ -12,43 +12,44 @@ import EducationalExperience from "@/components/sections/SchoolComponent/Educati
 import TiltedSlider from "@/components/slider/Slider";
 import world from "@/assets/images/world.png";
 import learn from "@/assets/images/learn.png";
+import faculty from "@/assets/images/faculty.png";
+import art from "@/assets/images/art.png";
+import ethos from "@/assets/images/ethos.png";
 
 const sectionsData = [
   {
     id: "section-1",
     backgroundImage: `${world}`,
     heading: "World-Class Learning",
-    buttonText: "Meet Our Community",
+    buttonText: "Know More",
     onButtonClick: () => alert("Meet Our Community clicked"),
   },
   {
     id: "section-2",
     backgroundImage: `${learn}`,
     heading: "Innovative E-Learning Facilities",
-    buttonText: "Dive In",
+    buttonText: "Know More",
     onButtonClick: () => alert("Dive In clicked"),
   },
   {
     id: "section-3",
-    backgroundImage:
-      "https://www.hw.com/portals/0/stackedcards/followyour-1.jpg",
+    backgroundImage: `${faculty}`,
     heading: "Experienced Faculty",
-    buttonText: "Slide In",
+    buttonText: "Know More",
     onButtonClick: () => alert("Dive In clicked"),
   },
   {
     id: "section-1",
-    backgroundImage: "https://www.hw.com/portals/0/stackedcards/makenew-4.jpg",
+    backgroundImage: `${art}`,
     heading: "State-of-the-art Facilities",
-    buttonText: "Meet Our Community",
+    buttonText: "Know More",
     onButtonClick: () => alert("Meet Our Community clicked"),
   },
   {
     id: "section-2",
-    backgroundImage:
-      "https://www.hw.com/portals/0/stackedcards/learnwhat-1.jpg",
+    backgroundImage: `${ethos}`,
     heading: "BFIS Value & Ethos",
-    buttonText: "Dive In",
+    buttonText: "Know More",
     onButtonClick: () => alert("Dive In clicked"),
   },
 ];
@@ -61,7 +62,7 @@ const HomeOne = () => {
         <meta name="description" content="BFIS - Best School In North India" />
       </Helmet>
       <HeroVideo />
-      <SchoolComponent />
+      <StudentProfileCarousel />
       <TiltedSlider />
 
       <FullscreenSections sections={sectionsData} />
