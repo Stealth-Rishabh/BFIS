@@ -27,8 +27,8 @@ const ImageCard = ({ imageSrc, altText }) => {
 
 export function GalleryTwo() {
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-newRed">
-      <h2 className="text-white text-4xl font-bold text-center mb-2 sm:mt-12">
+    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden pb-16 bg-red-600">
+      <h2 className="text-white text-4xl font-bold text-center mb-8 sm:mt-12 font-playfair">
         What&apos;s Happenings
       </h2>
       {/* Top Marquee */}

@@ -14,7 +14,7 @@ export default function PicLayout() {
   const isParagraphInView = useInView(paragraphRef, { triggerOnce: false });
 
   return (
-    <div className="bg-newRed p-8 flex justify-center flex-col md:flex-row items-center overflow-x-hidden">
+    <div className="bg-red-600 p-8 flex justify-center flex-col md:flex-row items-center overflow-x-hidden">
       {/* Image Section - Slide in from Left */}
       <motion.div
         className="md:w-1/2"
@@ -34,7 +34,7 @@ export default function PicLayout() {
       <div className="md:w-1/2 md:pl-8 text-white">
         {/* Heading Section - Slide in from Right */}
         <motion.h2
-          className="text-4xl font-bold mb-4"
+          className="text-4xl font-bold mb-4 font-playfair"
           ref={headingRef} // Ref for the heading to track when it's in view
           initial={{ x: "100%", opacity: 0 }} // Start outside from the right
           animate={isHeadingInView ? { x: 0, opacity: 1 } : {}} // Animate only when in view
@@ -45,7 +45,7 @@ export default function PicLayout() {
 
         {/* Paragraph Section - Slide in from Bottom */}
         <motion.p
-          className="text-sm text-slate-300"
+          className="text-sm text-slate-300 font-montserrat"
           ref={paragraphRef} // Ref for the paragraph to track when it's in view
           initial={{ y: "100%", opacity: 0 }} // Start outside from the bottom
           animate={isParagraphInView ? { y: 0, opacity: 1 } : {}} // Animate only when in view

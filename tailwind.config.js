@@ -38,8 +38,9 @@ module.exports = {
         "4xl": "0px 4.4px 20px -1px rgba(19, 16, 34, 0.05)",
       },
       fontFamily: {
-        roboto: ["Roboto", "sans-serif"],
-        montserrat: ["Montserrat", "sans-serif"],
+        playfair: ['"Playfair Display"', "serif"],
+        poppins: ['"Poppins"', "sans-serif"],
+        montserrat: ['"Montserrat"', "sans-serif"],
       },
       colors: {
         newBlue: "#0a1b2f",

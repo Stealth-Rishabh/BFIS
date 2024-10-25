@@ -27,7 +27,7 @@ const FullScreenCard = ({
         <span className="absolute inset-0 w-0 bg-gray-800 transition-all duration-300 ease-in-out group-hover:w-[90%]"></span>
       </button> */}
       <button
-        className="group relative inline-flex items-center bg-[#BF2B34] text-white font-bold py-4 pl-6 pr-24 overflow-hidden"
+        className="group relative inline-flex items-center bg-red-600 text-white font-bold py-4 pl-6 pr-24 overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

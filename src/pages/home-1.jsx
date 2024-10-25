@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 
 import HeroVideo from "@/components/sections/heros/heroVideo";
 import SchoolComponent from "@/components/sections/SchoolComponent/SchoolComponent";
-import StudentResults from "@/components/sections/SchoolComponent/StudentResults";
+
 import Gallery from "@/components/sections/gallery/customGallery";
 import GalleryTwo from "@/components/sections/gallery/cutomGalleryTwo";
 import PicLayout from "@/components/sections/picLayout/picLayout";
@@ -10,20 +10,21 @@ import FullscreenSections from "@/components/sections/FullScreenSections/FullScr
 import EducationalExperience from "@/components/sections/SchoolComponent/EducationalExperience";
 
 import TiltedSlider from "@/components/slider/Slider";
+import world from "@/assets/images/world.png";
+import learn from "@/assets/images/learn.png";
 
 const sectionsData = [
   {
     id: "section-1",
-    backgroundImage: "https://www.hw.com/portals/0/stackedcards/makenew-4.jpg",
-    heading: "Make New Friends",
+    backgroundImage: `${world}`,
+    heading: "World-Class Learning",
     buttonText: "Meet Our Community",
     onButtonClick: () => alert("Meet Our Community clicked"),
   },
   {
     id: "section-2",
-    backgroundImage:
-      "https://www.hw.com/portals/0/stackedcards/learnwhat-1.jpg",
-    heading: "Learn What You Love",
+    backgroundImage: `${learn}`,
+    heading: "Innovative E-Learning Facilities",
     buttonText: "Dive In",
     onButtonClick: () => alert("Dive In clicked"),
   },
@@ -31,14 +32,14 @@ const sectionsData = [
     id: "section-3",
     backgroundImage:
       "https://www.hw.com/portals/0/stackedcards/followyour-1.jpg",
-    heading: "Slide3",
+    heading: "Experienced Faculty",
     buttonText: "Slide In",
     onButtonClick: () => alert("Dive In clicked"),
   },
   {
     id: "section-1",
     backgroundImage: "https://www.hw.com/portals/0/stackedcards/makenew-4.jpg",
-    heading: "Make New Friends",
+    heading: "State-of-the-art Facilities",
     buttonText: "Meet Our Community",
     onButtonClick: () => alert("Meet Our Community clicked"),
   },
@@ -46,7 +47,7 @@ const sectionsData = [
     id: "section-2",
     backgroundImage:
       "https://www.hw.com/portals/0/stackedcards/learnwhat-1.jpg",
-    heading: "Learn What You Love",
+    heading: "BFIS Value & Ethos",
     buttonText: "Dive In",
     onButtonClick: () => alert("Dive In clicked"),
   },
@@ -62,7 +63,7 @@ const HomeOne = () => {
       <HeroVideo />
       <SchoolComponent />
       <TiltedSlider />
-      <StudentResults />
+
       <FullscreenSections sections={sectionsData} />
       <PicLayout />
       <EducationalExperience />

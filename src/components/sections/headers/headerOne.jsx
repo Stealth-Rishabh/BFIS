@@ -35,7 +35,7 @@ const HeaderOne = () => {
                     <Button
                       asChild
                       variant="ghost"
-                      className="sm:flex hidden bg-newBlue"
+                      className="sm:flex hidden bg-red-600"
                     >
                       <Link to={"/contact-us"}>
                         Get A Quote <FaArrowRight />

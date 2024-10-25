@@ -22,17 +22,17 @@ export default function EducationalExperience() {
   const isImage6InView = useInView(image6Ref, { triggerOnce: false });
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 bg-white overflow-x-hidden">
+    <div className="max-w-6xl mx-auto px-4 py-16 bg-white overflow-hidden">
       {/* Heading with animation from top */}
-      <motion.h1
+      <motion.h2
         ref={headingRef}
-        className="text-3xl font-bold text-center text-blue-600 mb-8"
+        className="text-3xl font-bold text-center text-red-600 mb-8 font-playfair"
         initial={{ y: "-100%", opacity: 0 }}
         animate={isHeadingInView ? { y: 0, opacity: 1 } : {}}
         transition={{ type: "spring", stiffness: 60, delay: 0.1 }}
       >
         Discover the Diverse Educational Experience at BFIS
-      </motion.h1>
+      </motion.h2>
 
       <div className="grid lg:grid-cols-3 gap-0 md:grid-cols-1">
         {/* Left Side Images */}
@@ -101,7 +101,7 @@ export default function EducationalExperience() {
             our academic system, we provide a comprehensive learning experience
             through Academics, Events, Facilities, and more.
           </p>
-          <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+          <button className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors">
             Learn More
           </button>
         </div>

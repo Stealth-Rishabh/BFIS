@@ -1,8 +1,8 @@
-import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 const SchoolComponent = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(null); // Default to no active tab
 
   const tabs = [
     {
@@ -37,114 +37,96 @@ const SchoolComponent = () => {
     },
   ];
 
-  // Ref for observation
-  const headingRef = useRef(null);
-  const contentRef = useRef(null);
-  const isHeadingInView = useInView(headingRef, { once: false });
-  const isContentInView = useInView(contentRef, { once: false });
+  const handleTabClick = (index) => {
+    // Toggle the active tab. If the same tab is clicked, close it.
+    setActiveTab(activeTab === index ? null : index);
+  };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-newRed text-white p-8 overflow-x-hidden">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-red-600 py-16 text-white p-4 sm:p-8 overflow-x-hidden">
       {/* Heading and Subheading Section */}
-      <motion.div
-        className="text-center mb-8"
-        ref={headingRef}
-        initial={{ x: "-100%", opacity: 0 }} // Slide from left
-        animate={isHeadingInView ? { x: 0, opacity: 1 } : {}} // Animate when in view
-        transition={{ type: "spring", stiffness: 60, delay: 0.2 }} // Spring transition
-      >
-        <h2 className="text-3xl lg:text-5xl font-bold">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl lg:text-5xl font-bold font-playfair">
           Brookfield International School
         </h2>
         <h4 className="text-lg lg:text-xl mt-2">
           Where Curious Minds Become Compassionate & Confident Leaders
         </h4>
-      </motion.div>
+      </div>
 
       {/* For Large Screens (Original Design) */}
-      <motion.div
-        className="hidden lg:flex lg:flex-row bg-schoolgrey rounded-xl shadow-lg overflow-hidden max-w-6xl w-full"
-        ref={contentRef}
-        initial={{ x: "100%", opacity: 0 }} // Slide from right for large screens
-        animate={isContentInView ? { x: 0, opacity: 1 } : {}} // Animate when in view
-        transition={{ type: "spring", stiffness: 60, delay: 0.4 }} // Spring transition
-      >
+      <div className="hidden lg:flex lg:flex-row bg-schoolgrey rounded-xl shadow-lg overflow-hidden max-w-6xl w-full">
         <div className="flex-none w-full lg:w-1/4 bg-schoolgrey">
           {tabs.map((tab, index) => (
             <div
-              key={index}
-              className={`p-4 border-b cursor-pointer ${
+              key={`tab-${index}`} // Ensure unique keys
+              className={`p-4 border-b cursor-pointer transition-all duration-300 ${
                 activeTab === index
-                  ? "bg-schoolgrey text-white"
-                  : "bg-white text-black"
+                  ? "bg-gray-700 text-white"
+                  : "bg-white text-black hover:bg-gray-200"
               }`}
-              onClick={() => setActiveTab(index)}
+              onClick={() => handleTabClick(index)}
             >
-              <h3
-                className={`font-semibold text-lg ${
-                  activeTab === index ? "text-white" : "text-gray-800"
-                } opacity-0`}
-              >
-                {tab.title}
-              </h3>
-              <p
-                className={`text-sm ${
-                  activeTab === index ? "text-slate-300" : "text-black"
-                }`}
-              >
-                {tab.description}
-              </p>
+              <h3 className="font-semibold text-lg">{tab.title}</h3>
+              <p className="text-sm">{tab.description}</p>
             </div>
           ))}
         </div>
 
         <div className="flex-grow lg:w-1/3 p-6 lg:p-16 bg-schoolgrey text-white">
-          <h3 className="font-bold mb-4 text-xl text-white">
-            {tabs[activeTab].description}
-          </h3>
-          <p className="text-slate-300 whitespace-pre-line">
-            {tabs[activeTab].content}
-          </p>
+          {activeTab !== null && (
+            <>
+              <h3 className="font-bold mb-4 text-xl text-white">
+                {tabs[activeTab].description}
+              </h3>
+              <p className="text-slate-300 whitespace-pre-line">
+                {tabs[activeTab].content}
+              </p>
+            </>
+          )}
         </div>
 
         <div className="flex-none w-full lg:w-1/3">
-          <img
-            src={tabs[activeTab].image}
-            alt={tabs[activeTab].title}
-            className="object-cover w-full h-full"
-          />
+          {activeTab !== null && (
+            <img
+              src={tabs[activeTab].image}
+              alt={tabs[activeTab].title}
+              className="object-cover w-full h-full"
+            />
+          )}
         </div>
-      </motion.div>
+      </div>
 
       {/* For Mobile and Tablet (Accordion Design) */}
-      <div className="lg:hidden w-full lg:max-w-6xl mx-auto border rounded-lg">
+      <div className="lg:hidden w-full max-w-2xl mx-auto mt-8">
         {tabs.map((tab, index) => (
           <div
-            key={index}
-            className="border-b border-gray-200 border rounded-lg"
+            key={`mobile-tab-${index}`} // Ensure unique keys
+            className={`border rounded-lg mb-4 overflow-hidden ${
+              activeTab === index
+                ? "bg-gray-700 text-white"
+                : "bg-white text-black"
+            }`}
           >
             {/* Tab Title */}
             <div
-              className={`p-4 cursor-pointer               
-              bg-white text-black`}
-              onClick={() => setActiveTab(activeTab === index ? null : index)}
+              className="p-4 cursor-pointer flex justify-between items-center"
+              onClick={() => handleTabClick(index)}
             >
-              <h3 className="font-semibold text-lg opacity-0">{tab.title}</h3>
+              <h3 className="font-semibold text-lg">{tab.title}</h3>
               <p className="text-sm">{tab.description}</p>
             </div>
 
             {/* Content (Only visible if activeTab matches the current index) */}
             {activeTab === index && (
               <motion.div
-                className="bg-schoolgrey p-4 text-white"
-                initial={{ height: 0, opacity: 0, x: "100%" }} // Slide in from right
-                animate={{ height: "auto", opacity: 1, x: 0 }} // Slide into view
-                exit={{ height: 0, opacity: 0, x: "100%" }} // Slide out when closed
+                className="p-4 bg-gray-800 text-white rounded-b-lg"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                transition={{ duration: 0.3 }}
               >
                 <div>
-                  <h3 className="font-bold mb-4 text-xl text-white">
-                    {tab.description}
-                  </h3>
+                  <h3 className="font-bold mb-2 text-xl">{tab.description}</h3>
                   <p className="text-slate-300 whitespace-pre-line mb-4">
                     {tab.content}
                   </p>
