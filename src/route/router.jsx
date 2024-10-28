@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import ScrollToTop from "../components/ScrollToTop"; // Adjust path as needed
-import RootLayout from "../layout/root";
+
 import Portfolio from "../pages/portfolio";
 import Blog from "../pages/blog";
 import BlogDetails from "../pages/blog-details";
@@ -9,10 +9,9 @@ import AboutUs from "@/pages/about-us";
 import Services from "@/pages/services";
 import ServiceDetails from "@/pages/service-details";
 import Faq from "@/pages/faq";
-import LayoutTwo from "@/layout/layoutTwo";
-import HomeTwo from "@/pages/home-2";
+import Root from "@/components/layout/root";
+
 import HomeOne from "@/pages/home-1";
-import LayoutThree from "@/layout/layoutThree";
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +19,7 @@ export const router = createBrowserRouter([
     element: (
       <>
         <ScrollToTop />
-        <RootLayout />
+        <Root />
       </>
     ),
     children: [
@@ -35,13 +34,13 @@ export const router = createBrowserRouter([
     element: (
       <>
         <ScrollToTop />
-        <LayoutTwo />
+        <Root />
       </>
     ),
     children: [
       {
-        path: "/home-2",
-        element: <HomeTwo />,
+        path: "/home",
+        element: <HomeOne />,
       },
     ],
   },
@@ -50,7 +49,6 @@ export const router = createBrowserRouter([
     element: (
       <>
         <ScrollToTop />
-        <LayoutThree />
       </>
     ),
     children: [
