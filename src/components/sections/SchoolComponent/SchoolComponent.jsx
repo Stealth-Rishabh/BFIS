@@ -91,7 +91,7 @@ export default function StudentProfileCarousel() {
   }, [isMobile, currentIndex, controls]);
 
   return (
-    <div className="max-w-7xl py-16 mx-auto p-6 bg-red-600 bg-gradient-to-br from-red-600 text-white rounded-lg shadow-xl">
+    <div className="max-w-full bg-gradient-to-br from-black via-gray-900 to-black text-white py-24 px-6">
       {/* Heading Section */}
       <div className="text-center mb-16">
         <WordPullUp
@@ -100,7 +100,7 @@ export default function StudentProfileCarousel() {
         />
         <WordFadeIn
           words="Where Curious Minds Become Compassionate & Confident Leaders"
-          className="mt-4 text-xl"
+          className="mt-4 text-xl text-red-600"
         />
       </div>
 
@@ -122,7 +122,7 @@ export default function StudentProfileCarousel() {
         {/* Student Information */}
         <div className="col-span-1 md:col-span-2 space-y-4 relative">
           <div className="absolute -top-4 left-0">
-            <span className="text-white text-sm font-semibold border-b-2 border-white">
+            <span className="text-red-600 text-sm font-semibold border-b-2 border-red-600">
               Reason To Choose
             </span>
           </div>
@@ -149,12 +149,6 @@ export default function StudentProfileCarousel() {
           <p className="text-gray-300">
             {students[currentIndex].additionalInfo}
           </p>
-          <a
-            href="#"
-            className="text-yellow-300 hover:text-yellow-400 font-medium"
-          >
-            Read More
-          </a>
         </div>
         {/* Additional Images */}
         <div className="col-span-1 md:col-span-2">

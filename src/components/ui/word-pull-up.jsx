@@ -13,7 +13,7 @@ export default function WordPullUp({
       opacity: 1,
       transition: {
         staggerChildren: 0.2, // Stagger the animation for each word
-        delayChildren: 0.3, // Delay before starting to stagger the words
+        delayChildren: 0.2, // Delay before starting to stagger the words
       },
     },
   },

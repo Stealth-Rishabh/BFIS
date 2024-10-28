@@ -9,7 +9,7 @@ const FullScreenCard = ({
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div
-      className="max-w-[1330px] w-full h-full mx-auto flex flex-col justify-center items-center text-white bg-cover bg-center relative"
+      className="max-w-full w-full h-full mx-auto flex flex-col justify-center items-center text-white bg-cover bg-center relative"
       style={{
         padding:
           "clamp(1.5rem, 2.380952381vw + 0.6904761905rem, 4.5rem) clamp(3rem, 5.5555555556vw + 1.1111111111rem, 10rem)",

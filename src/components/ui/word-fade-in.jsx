@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export default function WordFadeIn({
   words,
-  delay = 0.15,
+  delay = 0.1,
 
   variants = {
     hidden: { opacity: 0 },
@@ -35,7 +35,7 @@ export default function WordFadeIn({
       initial="hidden"
       animate={inView ? "visible" : "hidden"} // Animate based on inView state
       className={cn(
-        "font-display text-center text-4xl font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white  md:leading-[5rem]",
+        "font-display text-center text-4xl font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white  md:leading-[2rem]",
         className
       )}
     >

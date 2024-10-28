@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import ScrollToTop from "../components/ScrollToTop"; // Adjust path as needed
 import RootLayout from "../layout/root";
 import Portfolio from "../pages/portfolio";
 import Blog from "../pages/blog";
@@ -13,65 +14,78 @@ import HomeTwo from "@/pages/home-2";
 import HomeOne from "@/pages/home-1";
 import LayoutThree from "@/layout/layoutThree";
 
-
 export const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: (
+      <>
+        <ScrollToTop />
+        <RootLayout />
+      </>
+    ),
+    children: [
+      {
         path: "/",
-        element: <RootLayout />,
-        children: [
-            {
-                path: "/",
-                element: <HomeOne />
-            },
-        ]
-    },
-    {
-        path: "/",
-        element: <LayoutTwo />,
-        children: [
-            {
-                path: "/home-2",
-                element: <HomeTwo />
-            }
-        ]
-    },
-    {
-        path: "/",
-        element: <LayoutThree />,
-        children: [
-            {
-                path: "/about-us",
-                element: <AboutUs />
-            },
-            {
-                path: "/contact-us",
-                element: <ContactUs />
-            },
-            {
-                path: "/blog",
-                element: <Blog />
-            },
-            {
-                path: "/blog-details",
-                element: <BlogDetails />
-            },
-            {
-                path: "/services",
-                element: <Services />
-            },
-            {
-                path: "/service-details",
-                element: <ServiceDetails />
-            },
-            {
-                path: "/portfolio",
-                element: <Portfolio />
-            },
-
-            {
-                path: "/faq",
-                element: <Faq />
-            },
-        ]
-    },
-])
+        element: <HomeOne />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: (
+      <>
+        <ScrollToTop />
+        <LayoutTwo />
+      </>
+    ),
+    children: [
+      {
+        path: "/home-2",
+        element: <HomeTwo />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: (
+      <>
+        <ScrollToTop />
+        <LayoutThree />
+      </>
+    ),
+    children: [
+      {
+        path: "/about-us",
+        element: <AboutUs />,
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUs />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
+        path: "/blog-details",
+        element: <BlogDetails />,
+      },
+      {
+        path: "/services",
+        element: <Services />,
+      },
+      {
+        path: "/service-details",
+        element: <ServiceDetails />,
+      },
+      {
+        path: "/portfolio",
+        element: <Portfolio />,
+      },
+      {
+        path: "/faq",
+        element: <Faq />,
+      },
+    ],
+  },
+]);

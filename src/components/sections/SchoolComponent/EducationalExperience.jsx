@@ -1,10 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import WordPullUp from "@/components/ui/word-pull-up"; // Adjust path if needed
 
 /* eslint-disable react/prop-types */
 export default function EducationalExperience() {
-  // Refs to observe each image and the heading
-  const headingRef = useRef(null);
+  // Refs to observe each image
   const image1Ref = useRef(null);
   const image2Ref = useRef(null);
   const image3Ref = useRef(null);
@@ -13,7 +13,6 @@ export default function EducationalExperience() {
   const image6Ref = useRef(null);
 
   // UseInView hooks to detect when elements are in view
-  const isHeadingInView = useInView(headingRef, { triggerOnce: false });
   const isImage1InView = useInView(image1Ref, { triggerOnce: false });
   const isImage2InView = useInView(image2Ref, { triggerOnce: false });
   const isImage3InView = useInView(image3Ref, { triggerOnce: false });
@@ -22,17 +21,14 @@ export default function EducationalExperience() {
   const isImage6InView = useInView(image6Ref, { triggerOnce: false });
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-16 bg-white overflow-hidden">
-      {/* Heading with animation from top */}
-      <motion.h2
-        ref={headingRef}
-        className="text-3xl font-bold text-center text-red-600 mb-8 font-playfair"
-        initial={{ y: "-100%", opacity: 0 }}
-        animate={isHeadingInView ? { y: 0, opacity: 1 } : {}}
-        transition={{ type: "spring", stiffness: 60, delay: 0.1 }}
-      >
-        Discover the Diverse Educational Experience at BFIS
-      </motion.h2>
+    <div className="max-w-full mx-auto px-4 py-16 bg-white overflow-hidden">
+      {/* Heading with WordPullUp Animation */}
+      <div className="text-center mb-8">
+        <WordPullUp
+          className="text-3xl font-bold text-red-600 font-playfair mb-12"
+          words="Discover the Diverse Educational Experience at BFIS"
+        />
+      </div>
 
       <div className="grid lg:grid-cols-3 gap-0 md:grid-cols-1">
         {/* Left Side Images */}
@@ -41,12 +37,17 @@ export default function EducationalExperience() {
             ref={image1Ref}
             initial={{ x: "-100%", y: "-100%", opacity: 0 }}
             animate={isImage1InView ? { x: 0, y: 0, opacity: 1 } : {}}
-            transition={{ type: "spring", stiffness: 60, delay: 0.2 }}
+            transition={{
+              type: "spring",
+              stiffness: 50,
+              damping: 20,
+              delay: 0.2,
+            }}
           >
             <ImageSection
               title="Academics"
               color="bg-purple-500"
-              className=" rounded-lg lg:rounded-none lg:rounded-tl-lg"
+              className="rounded-lg lg:rounded-none lg:rounded-tl-lg"
               imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img1.png"
             />
           </motion.div>
@@ -57,12 +58,17 @@ export default function EducationalExperience() {
             ref={image2Ref}
             initial={{ x: "-100%", opacity: 0 }}
             animate={isImage2InView ? { x: 0, opacity: 1 } : {}}
-            transition={{ type: "spring", stiffness: 60, delay: 0.3 }}
+            transition={{
+              type: "spring",
+              stiffness: 50,
+              damping: 20,
+              delay: 0.3,
+            }}
           >
             <ImageSection
               title="Student Life"
               color="bg-blue-500"
-              className=" lg:rounded-none rounded-lg"
+              className="lg:rounded-none rounded-lg"
               imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img2.png"
             />
           </motion.div>
@@ -73,12 +79,17 @@ export default function EducationalExperience() {
             ref={image3Ref}
             initial={{ x: "-100%", y: "100%", opacity: 0 }}
             animate={isImage3InView ? { x: 0, y: 0, opacity: 1 } : {}}
-            transition={{ type: "spring", stiffness: 60, delay: 0.4 }}
+            transition={{
+              type: "spring",
+              stiffness: 50,
+              damping: 20,
+              delay: 0.4,
+            }}
           >
             <ImageSection
               title="Achievements"
               color="bg-purple-500"
-              className=" rounded-lg lg:rounded-none lg:rounded-bl-lg"
+              className="rounded-lg lg:rounded-none lg:rounded-bl-lg"
               imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img1.png"
             />
           </motion.div>
@@ -112,12 +123,17 @@ export default function EducationalExperience() {
             ref={image4Ref}
             initial={{ x: "100%", y: "-100%", opacity: 0 }}
             animate={isImage4InView ? { x: 0, y: 0, opacity: 1 } : {}}
-            transition={{ type: "spring", stiffness: 60, delay: 0.2 }}
+            transition={{
+              type: "spring",
+              stiffness: 50,
+              damping: 20,
+              delay: 0.2,
+            }}
           >
             <ImageSection
               title="Extracurricular"
               color="bg-green-500"
-              className=" rounded-lg lg:rounded-none lg:rounded-tr-lg"
+              className="rounded-lg lg:rounded-none lg:rounded-tr-lg"
               imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img3.png"
             />
           </motion.div>
@@ -128,12 +144,17 @@ export default function EducationalExperience() {
             ref={image5Ref}
             initial={{ x: "100%", opacity: 0 }}
             animate={isImage5InView ? { x: 0, opacity: 1 } : {}}
-            transition={{ type: "spring", stiffness: 60, delay: 0.3 }}
+            transition={{
+              type: "spring",
+              stiffness: 50,
+              damping: 20,
+              delay: 0.3,
+            }}
           >
             <ImageSection
               title="Facilities"
               color="bg-yellow-500"
-              className=" rounded-lg lg:rounded-none"
+              className="rounded-lg lg:rounded-none"
               imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img4.png"
             />
           </motion.div>
@@ -144,12 +165,17 @@ export default function EducationalExperience() {
             ref={image6Ref}
             initial={{ x: "100%", y: "100%", opacity: 0 }}
             animate={isImage6InView ? { x: 0, y: 0, opacity: 1 } : {}}
-            transition={{ type: "spring", stiffness: 60, delay: 0.4 }}
+            transition={{
+              type: "spring",
+              stiffness: 50,
+              damping: 20,
+              delay: 0.4,
+            }}
           >
             <ImageSection
               title="Events"
               color="bg-green-500"
-              className=" rounded-lg lg:rounded-none lg:rounded-br-lg"
+              className="rounded-lg lg:rounded-none lg:rounded-br-lg"
               imageSrc="https://www.vibgyorhigh.com/public/assets/frontend/images/education-img3.png"
             />
           </motion.div>

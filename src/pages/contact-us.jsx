@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail } from "lucide-react";
+import WordFadeIn from "@/components/ui/word-fade-in"; // Adjust path if necessary
+import WordPullUp from "@/components/ui/word-pull-up"; // Adjust path if necessary
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -32,13 +34,16 @@ export default function ContactUs() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-5xl font-extrabold text-red-600 mb-4">
-            Get In Touch
-          </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Reach out to us for any questions or inquiries. Our team is here to
-            assist you and will respond as soon as possible.
-          </p>
+          {/* Animated Heading */}
+          <WordPullUp
+            className="text-5xl font-extrabold text-red-600 mb-4"
+            words="Get In Touch"
+          />
+          {/* Animated Description */}
+          <WordFadeIn
+            className="text-xl text-gray-300 max-w-2xl mx-auto"
+            words="Reach out to us for any questions or inquiries. Our team is here to assist you and will respond as soon as possible."
+          />
         </motion.div>
 
         {/* Contact Info and Form Section */}
@@ -115,6 +120,7 @@ export default function ContactUs() {
 
           {/* Contact Info Cards */}
           <div className="space-y-8 order-2 lg:order-1">
+            {/* Address Card */}
             <motion.div
               className="bg-gradient-to-r from-red-600 to-red-800 p-6 rounded-lg shadow-lg flex items-center space-x-4"
               initial={{ opacity: 0, x: -20 }}
@@ -132,6 +138,7 @@ export default function ContactUs() {
                 </p>
               </div>
             </motion.div>
+            {/* Phone Card */}
             <motion.div
               className="bg-gradient-to-r from-red-600 to-red-800 p-6 rounded-lg shadow-lg flex items-center space-x-4"
               initial={{ opacity: 0, x: -20 }}
@@ -144,6 +151,7 @@ export default function ContactUs() {
                 <p className="text-gray-200">+91-90667 90662</p>
               </div>
             </motion.div>
+            {/* Email Card */}
             <motion.div
               className="bg-gradient-to-r from-red-600 to-red-800 p-6 rounded-lg shadow-lg flex items-center space-x-4"
               initial={{ opacity: 0, x: -20 }}
