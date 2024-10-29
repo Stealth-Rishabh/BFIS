@@ -4,23 +4,25 @@ import { Button } from "@/components/ui/button";
 
 const AboutSidebar = ({ sidebarLinks }) => {
   return (
-    <div className="col-span-1 mb-16 pt-8 h-screen sticky top-4 overflow-auto">
+    <div className="col-span-1 mb-16 pt-8 lg:h-screen lg:sticky lg:top-4 overflow-y-auto">
       <div className="flex flex-col h-full p-6 rounded-lg shadow-lg bg-gradient-to-b from-black to-gray-800 text-white border border-gray-700">
         <h2 className="mb-4 text-xl font-semibold tracking-wider uppercase ml-4">
           Overview
         </h2>
+
         <nav className="mb-8 space-y-2">
           {sidebarLinks.map((link) => (
             <Link
               key={link.href}
               to={link.href}
-              className="block px-4 py-2 text-sm text-gray-300 transition-all duration-300 rounded-lg hover:pl-6 hover:text-white hover:bg-gray-700 hover:shadow-md"
+              className="block px-3 py-2 text-sm text-gray-300 transition-all duration-300 rounded-lg hover:pl-6 hover:text-white hover:bg-gray-700 hover:shadow-md"
             >
               {link.label}
             </Link>
           ))}
         </nav>
-        <Button className="w-full px-4 py-3 mb-6 font-bold text-white bg-gradient-to-r from-red-900 to-red-700 rounded-lg shadow-lg transition-all duration-300 hover:from-red-900 hover:to-red-700 hover:text-[#282828]">
+
+        <Button className="w-full px-3 py-2 mb-6 font-bold text-white bg-gradient-to-r from-red-900 to-red-700 rounded-lg shadow-lg transition-all duration-300 hover:from-red-700 hover:to-red-900">
           Apply Online
         </Button>
 

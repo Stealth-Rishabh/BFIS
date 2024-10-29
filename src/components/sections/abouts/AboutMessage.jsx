@@ -8,7 +8,7 @@ function AboutMessage() {
             <div>
               <div className="h-64 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-auto">
                 <img
-                  src="your-image-url-here" // Replace with the actual image URL
+                  src="https://www.bfis.in/wp-content/uploads/2021/04/President-BFIS-300x300.jpg"
                   loading="lazy"
                   alt="Brookfield International School"
                   className="h-full w-full object-cover object-center"
