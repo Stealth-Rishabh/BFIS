@@ -10,9 +10,7 @@ export default function Navbar() {
     { name: "Courses", path: "/courses" },
     { name: "Admissions", path: "/admissions" },
     { name: "Events", path: "/events" },
-    { name: "Why Indo Global", path: "/why-indo-global" },
     { name: "Blogs", path: "/blogs" },
-    { name: "Careers", path: "/careers" },
     { name: "Contact Us", path: "/contact-us" },
   ];
 
@@ -23,7 +21,7 @@ export default function Navbar() {
           <img
             src={logo}
             alt="Indo Global Group of Colleges"
-            className="object-contain h-20"
+            className="object-contain lg:h-24 md:h-20 sm:h-16 h-12"
           />
           {/* <img src={logo2} alt="22 Years" className="object-contain h-12" /> */}
         </div>

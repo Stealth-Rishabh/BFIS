@@ -5,13 +5,26 @@ import Portfolio from "../pages/portfolio";
 import Blog from "../pages/blog";
 import BlogDetails from "../pages/blog-details";
 import ContactUs from "@/pages/contact-us";
-import AboutUs from "@/pages/about-us";
 import Services from "@/pages/services";
 import ServiceDetails from "@/pages/service-details";
 import Faq from "@/pages/faq";
 import Root from "@/components/layout/root";
-
 import HomeOne from "@/pages/home-1";
+
+// About Section Pages
+import AboutLayout from "@/components/sections/abouts/AboutLayout"; // Layout containing sidebar and breadcrumbs
+import AboutUs from "@/components/sections/abouts/About";
+import AboutMessage from "@/components/sections/abouts/AboutMessage";
+import AboutValues from "@/components/sections/abouts/AboutValues";
+import AboutSetUsApart from "@/components/sections/abouts/AboutSetUsApart";
+
+// Sidebar links for About section
+const aboutSidebarLinks = [
+  { href: "/about", label: "About Us" },
+  { href: "/about/message", label: "Message" },
+  { href: "/about/values", label: "Our Values" },
+  { href: "/about/set-us-apart", label: "What Sets Us Apart" },
+];
 
 export const router = createBrowserRouter([
   {
@@ -27,34 +40,20 @@ export const router = createBrowserRouter([
         path: "/",
         element: <HomeOne />,
       },
-    ],
-  },
-  {
-    path: "/",
-    element: (
-      <>
-        <ScrollToTop />
-        <Root />
-      </>
-    ),
-    children: [
       {
         path: "/home",
-        element: <HomeOne />,
+        element: <HomeOne />, // Alternate path for Home
       },
-    ],
-  },
-  {
-    path: "/",
-    element: (
-      <>
-        <ScrollToTop />
-      </>
-    ),
-    children: [
+      // About Section with Layout
       {
-        path: "/about-us",
-        element: <AboutUs />,
+        path: "/about",
+        element: <AboutLayout sidebarLinks={aboutSidebarLinks} />, // Wrap About section with AboutLayout
+        children: [
+          { path: "", element: <AboutUs /> }, // "/about" main page
+          { path: "message", element: <AboutMessage /> }, // "/about/message" subpage
+          { path: "values", element: <AboutValues /> }, // "/about/values" subpage
+          { path: "set-us-apart", element: <AboutSetUsApart /> }, // "/about/set-us-apart" subpage
+        ],
       },
       {
         path: "/contact-us",

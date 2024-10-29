@@ -16,7 +16,7 @@ import SlideUp from "@/lib/animations/slideUp";
 
 const FooterTwo = () => {
   return (
-    <footer className="pt-20 bg-red-600 relative">
+    <footer className="pt-20 bg-gradient-to-br from-black via-gray-900 to-black relative">
       <div className="container">
         <div className="grid lg:grid-cols-[300px_auto_auto_268px] sm:grid-cols-2 grid-cols-1 gap-x-7.5 gap-y-10 justify-between text-center sm:text-left">
           <SlideUp delay={2}>
