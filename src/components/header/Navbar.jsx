@@ -33,7 +33,7 @@ export default function Navbar() {
                   to={link.path}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-red-100 bg-red-700 rounded px-3 py-2"
+                      ? "text-red-100 bg-destructive rounded px-3 py-2"
                       : "text-white hover:text-red-200 hover:bg-red-700 rounded px-3 py-2"
                   }
                 >

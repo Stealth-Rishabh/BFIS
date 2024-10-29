@@ -1,63 +1,45 @@
-import {
-  FacebookIcon,
-  Instagram,
-  Youtube,
-  MapPin,
-  Mail,
-  Phone,
-  Linkedin,
-} from "lucide-react";
-import { Link } from "react-router-dom";
+import { FaPhone, FaEnvelope, FaLocationDot } from "react-icons/fa6";
+import SocalIcons from "@/components/ui/socalIcons";
 
-export default function BannerNav() {
+const TopHeader = () => {
   return (
-    <div className="bg-red-600 text-gray-200 py-2 px-4 text-sm hidden sm:block">
-      <div className="container mx-auto flex justify-end sm:justify-between sm:items-center">
-        <div className="hidden md:flex items-center space-x-4">
-          <span>Follow us</span>
-          <div className="flex space-x-2">
-            <Link to="#" className=" text-gray-950 hover:text-gray-200">
-              <Instagram size={16} />
-            </Link>
-            <Link to="#" className="text-gray-950 hover:text-gray-200">
-              <FacebookIcon size={16} />
-            </Link>
-            <Link to="#" className="text-gray-950 hover:text-gray-200">
-              <Linkedin size={16} />
-            </Link>
+    <div id="top-header" className="bg-destructive sm:block hidden">
+      <div className="container">
+        <div className="flex lg:flex-row flex-col justify-between items-center gap-2 py-[13px]">
+          <div>
+            <ul className="flex gap-7.5">
+              {/* Phone number with tel link */}
+              <li className="text-cream-foreground flex items-center gap-4">
+                <FaPhone /> <a href="tel:+919066790662">+91-90667 90662</a>
+              </li>
 
-            <Link to="#" className="text-gray-950 hover:text-gray-200">
-              <Youtube size={16} />
-            </Link>
+              {/* Email with mailto link */}
+              <li className="text-cream-foreground flex items-center gap-4">
+                <FaEnvelope /> <a href="mailto:info@bfis.in">info@bfis.in</a>
+              </li>
+
+              {/* Location with Google Maps link */}
+              <li className="text-cream-foreground flex items-center gap-4">
+                <FaLocationDot />{" "}
+                <a
+                  href="https://www.google.com/maps/place/Sheikhpura+New+Chandigarh,+Kurali-Siswan+Road,+Mohali,+Pin:140110"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Sheikhpura New Chandigarh, Kurali-Siswan Road, Dist. S.A.S
+                  Nagar, Mohali, Pin: 140110
+                </a>
+              </li>
+            </ul>
           </div>
-        </div>
-        <div className="flex justify-end sm:items-center space-x-4">
-          <div className="hidden md:flex items-center">
-            <MapPin
-              size={16}
-              className="text-gray-950 hover:text-gray-200 mr-1"
-            />
-            <span>
-              Sheikhpura New Chandigarh, Kurali-Siswan Road, Dist. S.A.S Nagar,
-              Mohali, Pin: 140110
-            </span>
-          </div>
-          <div className="flex items-center">
-            <Mail
-              size={16}
-              className="text-gray-950 hover:text-gray-200 mr-1"
-            />
-            <span>info@bfis.in</span>
-          </div>
-          <div className="flex items-center">
-            <Phone
-              size={16}
-              className="text-gray-950 hover:text-gray-200 mr-1"
-            />
-            <span>+91-9066790662</span>
+
+          <div>
+            <SocalIcons className={"text-xs"} />
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default TopHeader;
