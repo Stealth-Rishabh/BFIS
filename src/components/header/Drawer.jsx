@@ -28,22 +28,22 @@ const Drawer = () => {
       <SheetTrigger className="lg:hidden block">
         <Menu className="w-8 h-8 text-white" />
       </SheetTrigger>
-      <SheetContent className="bg-primary-color">
+      <SheetContent className="bg-gradient-to-br from-black via-gray-900 to-black">
         <SheetHeader>
           <SheetTitle className="text-white text-2xl font-bold text-left">
-            Indo Global
+            BFIS
           </SheetTitle>
           <SheetDescription className="text-white text-left pt-5">
             <nav>
               <ul className="space-y-1">
-                {navlinks.map(({ name, path }, index) => (
+                {navlinks.map((link, index) => (
                   <li key={index}>
                     <SheetClose asChild>
                       <Link
-                        to={path}
+                        to={link.path}
                         className="block py-2 px-4 w-fit font-semibold text-slate-200 tracking-wider hover:bg-white/10 rounded transition-colors"
                       >
-                        {name}
+                        {link.name}
                       </Link>
                     </SheetClose>
                   </li>

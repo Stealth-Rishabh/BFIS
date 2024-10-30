@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const AboutSidebar = ({ sidebarLinks }) => {
   return (
-    <div className="col-span-1 mb-16 pt-8 lg:h-screen lg:sticky lg:top-4 overflow-y-auto">
+    <div className="col-span-1 mb-16 pt-8 lg:h-screen lg:sticky lg:top-4 lg:overflow-y-auto hidden lg:block">
       <div className="flex flex-col h-full p-6 rounded-lg shadow-lg bg-gradient-to-b from-black to-gray-800 text-white border border-gray-700">
         <h2 className="mb-4 text-xl font-semibold tracking-wider uppercase ml-4">
           Overview
@@ -34,7 +34,7 @@ const AboutSidebar = ({ sidebarLinks }) => {
             </p>
             <Button
               variant="outline"
-              className="text-white transition-colors bg-transparent border border-white rounded-lg hover:bg-white hover:text-gray-900"
+              className="text-white transition-colors bg-transparent border border-white rounded-lg hover:bg-white hover:text-gray-900 max-w-[90%] text-sm"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

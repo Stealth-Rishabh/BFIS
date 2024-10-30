@@ -31,9 +31,9 @@ const AboutLayout = ({ sidebarLinks }) => {
       {/* Banner with Breadcrumbs */}
       <BannerWithBreadcrumbs title={title} breadcrumbs={breadcrumbs} />
 
-      <div className="container mx-auto grid grid-cols-4 gap-8 mt-8">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 mt-8">
         {/* Content Area for Subpages */}
-        <div className="col-span-3 bg-white p-6 rounded-lg shadow">
+        <div className="col-span-1 lg:col-span-3 bg-white p-6 rounded-lg shadow">
           <Outlet />
         </div>
 
