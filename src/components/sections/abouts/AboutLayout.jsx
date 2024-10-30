@@ -3,6 +3,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import AboutSidebar from "@/components/sections/abouts/AboutSidebar";
 import BannerWithBreadcrumbs from "@/components/sections/abouts/BannerWithBreadcrumbs";
+import FooterTop from "@/components/footertop"; // Import FooterTop
 
 const AboutLayout = ({ sidebarLinks }) => {
   const location = useLocation();
@@ -30,7 +31,6 @@ const AboutLayout = ({ sidebarLinks }) => {
     <div>
       {/* Banner with Breadcrumbs */}
       <BannerWithBreadcrumbs title={title} breadcrumbs={breadcrumbs} />
-
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 mt-8">
         {/* Content Area for Subpages */}
         <div className="col-span-1 lg:col-span-3 bg-white p-6 rounded-lg shadow">
@@ -40,6 +40,8 @@ const AboutLayout = ({ sidebarLinks }) => {
         {/* Sidebar for About Pages */}
         <AboutSidebar sidebarLinks={sidebarLinks} />
       </div>
+      {/* Footer Top Section */}
+      <FooterTop /> {/* Insert FooterTop component here */}
     </div>
   );
 };
